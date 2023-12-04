@@ -1,0 +1,182 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EmpowerShe | Signup</title>
+    <!-- Bootstrap CDN -->
+    <link rel="icon" type="image/x-icon" href="./images/favicon/favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.jpg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.jpg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.jpg" />
+    <link rel="manifest" href="images/favicon/site.webmanifest" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/signup.css" />
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
+	<!-- Import style.css from root directory -->
+    <style>
+        body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 
+          'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+          'Open Sans', 'Helvetica Neue', sans-serif;
+          overflow:hidden;
+          background-color: rgb(246, 246, 248);
+    }
+    
+    #particles-js{
+        height:100vh;
+        width:100%;
+        background-color: rgb(207, 207, 248);
+        position:absolute;
+    
+    }
+    .card-body{
+        background-color: white;
+    
+    }
+    
+            
+    </style>
+    
+	
+</head> 
+
+<body> 
+	<!-- Particles.js div -->
+	<!-- <div id="particles-js">
+		</div> -->
+	
+		<nav class="navbar navbar-expand-lg navbar-light mt-6">
+			<a class="navbar-brand" href="index.html">
+				<img src="images/empower-logo.jpg" alt="empower-logo" style="height: 60px; width: 200px;" alt="empower" />
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+	
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	
+				<ul class="nav navbar-nav ml-auto">
+					<li class="nav-item" style="padding-left: 30px; padding-right: 100px;">
+						<a class="nav-link" href="login.html"><span class="fas fa-sign-in-alt"></span> Login</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+        <div style="display:flex; flex-direction: column; width:85%">
+		<div class="row" style="margin-left:100px; display:flex;">
+            <div class=" col-md-5 col-lg-5 ">
+                <div class="card card-signin my-3 rounded" >
+                    <div class="card-body ">
+                        <h5 class="card-title text-center">Sign Up</h5>
+                        <form class="form-signin">
+                            <!-- Name -->
+                            <div class="form-label-group" style="margin-top: 40px;">
+                                <input type="text" id="name" class="form-control" placeholder="Name" required
+                                    onfocus="purple(event)" autofocus style=" border: 2px solid #961e47;"/>
+                                <label id="labelName" for="name">Name</label>
+                            </div>
+                            <!-- Email -->
+                            <div class="form-label-group">
+                                <input type="email" id="email" class="form-control" placeholder="Email address"
+                                    onfocus="purple(event)" required style=" border: 2px solid #961e47;"/>
+                                <label id="labelEmail" for="email">Email Address</label>
+                            </div>
+                            <!-- Contact -->
+                            <div class="form-label-group">
+                                <input type="tel" id="phone" class="form-control" placeholder="Contact Number"
+                                    onfocus="purple(event)" required style=" border: 2px solid #961e47;"/>
+                                <label id="labelPhone" for="phone">Contact Number</label>
+                            </div>
+                            <!-- State and City - Location Details -->
+                            <div class="row form-label-group">
+                                <input type="hidden" class="form-control" name="country" id="countryId" value="IN" style=" border: 2px solid #961e47;"/>
+                                <div class="col-6">
+                                    <select name="state" class="states order-alpha" id="stateId" style=" border: 2px solid #961e47;"
+                                        onfocus="purple(event)">
+                                        <option value="">Select State</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <select name="city" class="cities order-alpha" id="cityId" onfocus="purple(event)" style=" border: 2px solid #961e47;">
+                                        <option value="">Select City</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Profession -->
+                            <div class="form-label-group">
+                                <input type="text" id="prof" class="form-control" placeholder="Your Profession"
+                                    onfocus="purple(event)" required style=" border: 2px solid #961e47;"/>
+                                <label id="labelProf" for="prof">Your Profession</label>
+                            </div>
+                            <!-- Profile Picture -->
+                            <div class="form-label-group">
+                                <input type="file" id="profile" placeholder="Profile Picture"
+                                    onfocus="purple(event)" required style="display: none;" style=" border: 2px solid #961e47;"/>
+                                <input type="button" id="new-upload-btn" class="form-control" value="Choose File"
+                                    style="width: 100%; background-color: white; border: 2px solid #961e47;"
+                                    onclick="document.getElementById('profile').click();" />
+                                <label id="labelProfile" for="profile">Profile Picture</label>
+                            </div>
+                            <!-- Password -->
+                            <div class="form-label-group">
+                                <input type="password" id="password" class="form-control" placeholder="Password" style=" border: 2px solid #961e47;"
+                                    onfocus="purple(event)" required />
+                                <label id="labelPassword" for="password">Password</label>
+                            </div>
+                            <!-- Signup button -->
+                            <div style="text-align: center;">
+                                <input class="btn btn-lg text-uppercase" value="Sign Up" id="sub" type="button" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 col-lg-7">
+                <!-- Your image goes here -->
+                <div style="width: 4000px; height: 4000px; margin-left:25%;  margin-top:10%;" >
+                    <img src="https://t4.ftcdn.net/jpg/05/58/06/81/360_F_558068185_sZmfyrWuzHTfzLdwJuj1ALQcBtbKAtbA.jpg" class="rounded-4" alt="signup ">
+                </div>
+            </div>
+        </div>
+       
+    </div>
+
+	
+
+
+	<!-- Import Particles.js and app.js files -->
+	<script src="node_modules/particles.js/particles.js"></script>
+<script src="node_modules/particles.js/demo/js/app.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!-- Sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <!-- geodata.solutions -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//geodata.solutions/includes/statecity.js"></script>
+
+</body> 
+
+</html> 
